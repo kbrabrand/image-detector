@@ -15,7 +15,7 @@ def returnObjects (file):
     for s in slices:
         height, width = label_im[s].shape
 
-        if width > 35:
+        if width > 45:
             prefix = ',' if counter > 0 else ''
 
             print '%s{"x":%d,"y":%d,"width":%d,"height":%d}' % (prefix, s[1].start, s[0].start, width, height)
