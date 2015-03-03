@@ -1,6 +1,14 @@
 # Image-in-image detector
 Detects images in images
 
+## Installation
+In order to use the tool, you need to have the following installed;
+
+- PHP
+- Python
+- tesseract-ocr
+- tesseract-ocr-nor
+
 ## Usage
 ```sh
 python detector.py images/
