@@ -42,7 +42,7 @@ function extractImageRegions($imagePath, $data, $writedir) {
 
         $image->cropImage(
             $detectedRegion['width'],
-            $detectedRegion['height'] + 45, // Add some below the image to get the name
+            $detectedRegion['height'] + 200, // Add some below the image to get the name
             $detectedRegion['x'],
             $detectedRegion['y']
         );
