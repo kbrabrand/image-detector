@@ -29,7 +29,7 @@ php crawler/crawler.php destinationDirectory volumeNumber fromPage toPage
 Takes care of extracting images from pages and running OCR on the text under the pictures.
 
 ```sh
-php extractor.php folderWithImage destinationForExtraction
+php extractor.php folderWithImages destinationForExtraction
 ```
 
 ## Licence
