@@ -1,5 +1,5 @@
-# Image-in-image detector
-Detects images in images
+# Downloader and image in image detector
+Built as part of the *Våre helter* project at Verdens Gang. Takes care of downloading and stitching page tiles, detection of images in pages and OCR of names of the people in the pictures.
 
 ## Installation
 In order to use the tool, you need to have the following installed;
@@ -15,8 +15,21 @@ Before running the extractor you should have a folder containing the images (obv
 The outputfolder needs to be writeable by the user running the PHP command.
 
 ## Usage
+### Crawler/downloader
+The script will fetch tiles from Nationalbiblioteket for the pages and stitch them together.
+
+In order to download the pages from the four volumes, use the following command:
+
 ```sh
-php extractor.php source destination
+php crawler/crawler.php destinationDirectory volumeNumber fromPage toPage
+```
+
+
+### Extractor
+Takes care of extracting images from pages and running OCR on the text under the pictures.
+
+```sh
+php extractor.php folderWithImage destinationForExtraction
 ```
 
 ## Licence
