@@ -30,6 +30,10 @@ for ($page=$fromPage; $page<=$toPage; $page++) {
 
     $pageDir = $destination . DIRECTORY_SEPARATOR . $pageString;
 
+    if (substr($pageDir, 0, 1) !== '/') {
+        $pageDir = getcwd() . DIRECTORY_SEPARATOR . $pageDir;
+    }
+
     if (!is_dir($pageDir)) {
         mkdir($pageDir);
     }
@@ -56,6 +60,7 @@ for ($page=$fromPage; $page<=$toPage; $page++) {
             );
 
             $bytes = file_put_contents($tileFile, fopen($tileUrl, 'r'));
+            chmod($tileFile, 0777);
 
             if (!!$bytes) {
                 $successfulTiles++;
