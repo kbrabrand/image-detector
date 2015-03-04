@@ -1,7 +1,7 @@
 <?php
 
 if (count($argv) < 4) {
-    echo "Usage: php crawler.php destination volume fromPage toPage";
+    echo 'Usage: php crawler.php destination volume fromPage toPage' . PHP_EOL;
     die;
 }
 
@@ -14,7 +14,7 @@ $rowTiles = 3;
 $colTiles = 2;
 
 if ($volume > 4) {
-    echo "Volume out of bounds. Allowed values: 1-4";
+    echo 'Volume out of bounds. Allowed values: 1-4' . PHP_EOL;
     die;
 }
 
@@ -33,6 +33,8 @@ for ($page=$fromPage; $page<=$toPage; $page++) {
     if (!is_dir($pageDir)) {
         mkdir($pageDir);
     }
+
+    $successfulTiles = 0;
 
     for ($row=0; $row<=$rowTiles; $row++) {
         for ($col=0; $col<=$colTiles; $col++) {
@@ -53,7 +55,24 @@ for ($page=$fromPage; $page<=$toPage; $page++) {
                 $col
             );
 
-            file_put_contents($tileFile, fopen($tileUrl, 'r'));
+            $bytes = file_put_contents($tileFile, fopen($tileUrl, 'r'));
+
+            if (!!$bytes) {
+                $successfulTiles++;
+            }
         }
+    }
+
+    if ($successfulTiles !== 12) {
+        echo sprintf('! Only %d of expected 12 tiles for vol. %d, page %d was downloaded.', $successfulTiles, $volume, $page) . PHP_EOL;
+        continue;
+    }
+
+    $stitchedPath = $destination . DIRECTORY_SEPARATOR . $pageString . '.jpg';
+
+    exec('python stitcher.py ' . $pageDir . ' ' . $stitchedPath);
+
+    if (is_file($stitchedPath)) {
+        exec('rm -rf ' . $pageDir);
     }
 }
