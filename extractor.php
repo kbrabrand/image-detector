@@ -50,7 +50,7 @@ function extractImageRegions($imagePath, $data, $writedir) {
         $image->writeImage($outFile);
         $image->clear();
 
-        //var_dump($inFile, getNamesFromFile($outFile));
+        file_put_contents($outdir . DIRECTORY_SEPARATOR . $i . '.txt', getNamesFromFile($outFile));
     }
 }
 
