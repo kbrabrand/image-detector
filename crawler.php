@@ -81,5 +81,5 @@ for ($page=$fromPage; $page<=$toPage; $page++) {
         exec('rm -rf ' . $pageDir);
     }
 
-    echo sprintf('Downloaded volum %d, page %d', $volume, $page) . PHP_EOL;
+    echo sprintf('Downloaded volume %d, page %d', $volume, $page) . PHP_EOL;
 }
