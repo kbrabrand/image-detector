@@ -80,4 +80,6 @@ for ($page=$fromPage; $page<=$toPage; $page++) {
     if (is_file($stitchedPath)) {
         exec('rm -rf ' . $pageDir);
     }
+
+    echo sprintf('Downloaded volum %d, page %d', $volume, $page) . PHP_EOL;
 }

@@ -11,7 +11,7 @@ $writedir = $argv[2];
 function execute($command) {
     exec($command, $output);
 
-    return implode($output);
+    return implode(' ', $output);
 }
 
 function getImageDataFromFile($file) {
