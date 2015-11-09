@@ -1,5 +1,5 @@
-# Downloader and image in image detector
-Built as part of the *Våre helter* project at Verdens Gang. Takes care of downloading and stitching page tiles, detection of images in pages and OCR of names of the people in the pictures.
+# Downloader and image-in-image detector
+Built as part of the "*Våre helter*" project at Verdens Gang. Takes care of downloading and stitching page tiles, detection of images in pages and OCR of names of the people in the pictures.
 
 ## Installation
 In order to use the tool, you need to have the following installed;
